@@ -1,0 +1,10 @@
+.banners{
+    max-height: 437px;
+    max-width: 437px;
+    display: flex;
+    flex-direction: column;
+    p{
+        font-size: 28px;
+        font-weight: 500;
+    }
+}

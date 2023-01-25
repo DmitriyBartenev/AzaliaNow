@@ -13,7 +13,7 @@ const Banners: React.FC = () => {
 
 
     return(
-        <div>
+        <div className={styles.banners}>
             <p>Всё для комфортной работы</p>
             <Image src={ArrowIcon} alt='arrow' width={43} height={18}/>
             <div>
