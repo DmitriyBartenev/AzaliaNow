@@ -1,7 +1,29 @@
-import Banners from '@/components/Banners'
+import React from 'react';
+
 import Head from 'next/head'
 
-export default function Home() {
+import Banner from '@/components/Banner'
+import Card from '@/components/Card';
+
+import styles from '../styles/CardsPage.module.scss';
+
+interface Card {
+  id: number,
+  title: string,
+  price: string,
+  category: string,
+  description: string,
+  image: string
+}
+
+interface CardsPageProps {
+  cards: Card[]
+}
+
+const CardsPage: React.FC<CardsPageProps> = ({cards}) => {
+
+  console.log(cards)
+
   return (
     <>
       <Head>
@@ -10,9 +32,31 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Banners/>
+      <main className={styles.main}>
+        <Banner/>
+        <ul>
+          {
+            cards.map(item => (
+              <Card key={item.id} {...item}/>
+            ))
+          }
+        </ul>
       </main>
     </>
   )
+}
+
+export default CardsPage;
+
+export async function getServerSideProps(){
+  
+  const response = await fetch('https://fakestoreapi.com/products');
+
+  const cards = await response.json();
+
+  return{
+    props:{
+      cards
+    }
+  }
 }

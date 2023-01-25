@@ -8,7 +8,7 @@ import Banner2 from '../public/banner2.png';
 
 import styles from '../styles/Banner.module.scss';
 
-const Banners: React.FC = () => {
+const Banner: React.FC = () => {
 
 
 
@@ -24,4 +24,4 @@ const Banners: React.FC = () => {
     )
 }
 
-export default Banners;
+export default Banner;
