@@ -2,7 +2,6 @@ import React from 'react';
 
 import Head from 'next/head'
 
-import Banner from '@/components/Banner'
 import Card from '@/components/Card';
 
 import styles from '../styles/CardsPage.module.scss';
@@ -33,7 +32,6 @@ const CardsPage: React.FC<CardsPageProps> = ({cards}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Banner/>
         <ul>
           {
             cards.map(item => (
