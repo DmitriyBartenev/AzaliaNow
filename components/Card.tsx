@@ -1,19 +1,28 @@
 import React from "react";
 import Image from "next/image";
 
-import FavouritesIcon from '../public/favourites.svg';
+import { icons, images } from "@/public";
 
 import styles from '../styles/Card.module.scss';
 
 interface CardProps {
     title: string,
-    price: string,
+    price: number,
     category: string,
     description: string,
-    image: string
+    image: string,
+    rating:{
+        count: number,
+        rate: number
+    }
 }
 
-const Card: React.FC<CardProps> = ({ title, price, category, description, image }) => {
+const Card: React.FC<CardProps> = (props) => {
+
+    const { title, price, category, description, image, rating } = props;
+
+    const { active, disabled } = icons;
+    const { bestseller } = images;
     
     const [addToCart, setAddToCart] = React.useState(false);
     const [warningMessage, setWarningMessage] = React.useState(false);
@@ -27,16 +36,38 @@ const Card: React.FC<CardProps> = ({ title, price, category, description, image 
             setAddToCart(true);
             setWarningMessage(false)
         }
+    }
 
+    const renderStars = () => {
+        let stars = [];
+        for(let i = 0; i < 5; i++){
+            stars.push(
+                <span 
+                    key={i} 
+                    className={Math.round(rating.rate) > i ? `${styles.star}` : `${styles.empty}`}
+                    />
+            )
+        }
+        return stars;
     }
 
     return(
         <li className={styles.card}>
             <Image src={image} alt='card' width={220} height={220}/>
+            {
+                rating.count > 300 &&
+                <Image src={bestseller} alt='bestseller' width={64} height={24} className={styles.bestseller}/>
+            }
             <div className={styles.container}>
-                <p className={styles.category}>{category}</p>
+                <div className={styles.rating}>
+                    <p>{category}</p>
+                    <div className={styles.rating__amount}>
+                        {renderStars()}
+                        <p>{rating.count} отзыва</p>
+                    </div>
+                </div>
                 <p className={styles.title}>{title}</p>
-                <p className={styles.price}><span className={styles.price__amount}>{parseInt(price) * 70} ₽</span> /шт.</p>
+                <p className={styles.price}><span className={styles.price__amount}>{Math.ceil(price * 70)} ₽</span> /шт.</p>
                 <div className={styles.wrapper}>
                     <button 
                         onClick={pushToCart}
@@ -60,11 +91,11 @@ const Card: React.FC<CardProps> = ({ title, price, category, description, image 
                         </div>
                     }
                     <Image 
-                        src={FavouritesIcon} 
+                        src={favourite ? active : disabled} 
                         alt='FavouritesIcon' 
                         width={40} 
                         height={40} 
-                        onClick={() => setFavourite(true)}
+                        onClick={() => setFavourite(!favourite)}
                         />
                 </div>
                 {
