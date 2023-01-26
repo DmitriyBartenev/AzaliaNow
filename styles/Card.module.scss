@@ -1,44 +1,93 @@
 @import '../styles/colors.scss';
 .card{
-    max-width: 332px;
+    width: 332px;
     height: fit-content;
     padding: 31px 30px;
-    border: solid 1px $card-border;
+    border: solid 1px $lightGray;
     margin: 0 15px 30px;
-    .category{
-        color: $gray;
-        margin: 12px 0 3px;
-        font-size: 12px;
-        line-height: 20px;
-    }
-    .description{
-        font-size: 14px;
-        line-height: 22px;
-    }
-    .price{
-        margin: 7px 0 13px;
-        font-weight: 500;
-        line-height: 20px;
-        font-size: 11px;
-        &__amount{
-            font-size: 22px;
-            font-weight: 700;
-        }
-    }
-    .wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .container{
         width: 100%;
-        display: flex;
-        justify-content: space-between;
-        button{
-            background-color: $button-green;
-            padding: 10px 56px;
-            color: #FFF;
-            border-radius: 90px;
-            font-size: 13px;
+        .category{
+            color: $gray;
+            margin: 12px 0 3px;
+            font-size: 12px;
+            line-height: 20px;
+        }
+        .title{
+            font-size: 14px;
+            line-height: 22px;
+        }
+        .price{
+            margin: 7px 0 13px;
             font-weight: 500;
             line-height: 20px;
-            border: none;
-            cursor: pointer;
+            font-size: 11px;
+            color:$gray;
+            &__amount{
+                font-size: 22px;
+                font-weight: 700;
+                color: $black;
+            }
+        }
+        .wrapper{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            img{
+                cursor: pointer;
+            }
+            button{
+                background-color: $button-blue;
+                padding: 10px 50px;
+                color: #FFF;
+                border-radius: 90px;
+                font-size: 13px;
+                font-weight: 500;
+                line-height: 20px;
+                border: none;
+                cursor: pointer;
+                position:relative;
+                z-index: 2;
+            }
+            .counter{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $lightGray;
+                padding: 10px 15px 10px 54px;
+                border-radius: 30px;
+                margin-left: -50px;
+                p{
+                    padding: 0 12px;
+                    font-size: 12px;
+                    line-height: 20px;
+                    font-weight: 500;
+                }
+                .action{
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    width: 10px;
+                    height: 10px;
+                    padding: 0;
+                    background-color: transparent;
+                    &:first-child{
+                        background-image: url('../public/-.svg');
+                    }
+                    &:last-child{
+                        background-image: url('../public/+.svg');
+                    }
+                }
+                
+            }
+        }
+        .warning_message{
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 10px;
         }
     }
 }
