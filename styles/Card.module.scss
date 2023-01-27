@@ -23,9 +23,6 @@
             &__amount{
                 display: flex;
                 align-items: center;
-                p{
-                    text-decoration: underline;
-                }
                 span{
                     background-image: url('../public/star.svg');
                     margin: 0 2px;
@@ -34,6 +31,9 @@
                 }
                 .empty{
                     background-image: url('../public/emptyStar.svg');
+                }
+                p{
+                    text-decoration: underline;
                 }
             }
         }
