@@ -1,4 +1,28 @@
-header{
+@import '../styles/colors.scss';
+.header{
     width: 100%;
-    
+    height: 70px;
+    border-bottom: solid 1px $lightGray;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 70px;
+    margin-bottom: 50px;
+    .cart{
+        position: relative;
+        img{
+            cursor: pointer;
+        }
+        p{
+            position: absolute;
+            top: -5px;
+            right: -15px;
+            background-color: #297CD2;
+            color: #FFF;
+            padding: 2px 4px;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 500;
+        }
+    }
 }

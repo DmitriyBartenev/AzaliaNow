@@ -5,4 +5,5 @@ export const icons = {
 
 export const images = {
     bestseller: require('../public/bestseller.png'),
+    cart: require('../public/cart.png')
 }

@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    border-radius: 15px;
     .container{
         width: 100%;
         .rating{
@@ -61,7 +62,7 @@
                 cursor: pointer;
             }
             button{
-                background-color: $button-blue;
+                background-color: $blue;
                 padding: 10px 45px;
                 color: #FFF;
                 border-radius: 90px;
@@ -77,7 +78,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background-color: $lightGray;
+                background-color: $lightGrayBg;
                 padding: 10px 15px 10px 54px;
                 border-radius: 30px;
                 margin-left: -45px;

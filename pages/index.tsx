@@ -5,6 +5,7 @@ import Head from 'next/head'
 import Card from '@/components/Card';
 
 import styles from '../styles/CardsPage.module.scss';
+import Header from '@/components/Header';
 
 interface Card {
   id: number,
