@@ -17,7 +17,7 @@ const Header = () => {
             
             <div className={styles.cart}>
                 <Image src={cart} alt='cart' width={36} height={36}/>
-                <p>5</p>
+                <p>10</p>
             </div>
         </header>
     )
