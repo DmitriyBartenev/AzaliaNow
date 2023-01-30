@@ -14,7 +14,7 @@ const Header = () => {
     
     return(
         <header className={styles.header}>
-            
+            <h3>Log In/Sign Up</h3>
             <div className={styles.cart}>
                 <Image src={cart} alt='cart' width={36} height={36}/>
                 <p>num</p>
