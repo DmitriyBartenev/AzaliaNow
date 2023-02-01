@@ -21,7 +21,7 @@ const Card: React.FC<CardProps> = (props) => {
 
     const { title, price, category, description, image, rating } = props;
 
-    const { active, disabled } = icons;
+    const { Favorites } = icons;
     const { bestseller } = images;
     
     const [addToCart, setAddToCart] = React.useState(false);
@@ -90,17 +90,13 @@ const Card: React.FC<CardProps> = (props) => {
                                 />
                         </div>
                     }
-                    <Image 
-                        src={favourite ? active : disabled} 
-                        alt='FavouritesIcon' 
-                        width={40} 
-                        height={40} 
-                        onClick={() => setFavourite(!favourite)}
-                        />
+                    <Favorites onClick={() => setFavourite(!favourite)} className={`${favourite ? styles.active : ''}`}/>
                 </div>
                 {
                     warningMessage &&
-                    <p className={styles.warning_message}>Please add to your cart at least one item</p>
+                    <p className={styles.warning_message}>
+                        Please add to your cart at least one item
+                    </p>
                 }
             </div>
         </li>

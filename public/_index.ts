@@ -1,6 +1,7 @@
+import Favorites from './favorites.svg';
+
 export const icons = {
-    disabled: require('../public/disabled.svg'),
-    active: require('../public/active.svg'),
+    Favorites
 }
 
 export const images = {

@@ -10,8 +10,6 @@ const Header = () => {
     
     const { cart } = images;
 
-    
-    
     return(
         <header className={styles.header}>
             <p>Sign Up</p>

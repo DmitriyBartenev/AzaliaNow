@@ -58,8 +58,22 @@
             width: 100%;
             display: flex;
             justify-content: space-between;
-            img{
+            svg{
                 cursor: pointer;
+                circle{
+                    color: rgb(158, 158, 158);
+                }
+                path{
+                    color: rgb(158, 158, 158);
+                }
+            }
+            .active{
+                circle{
+                    color: rgb(255, 59, 59);
+                }
+                path{
+                    color: rgb(255, 59, 59);
+                }
             }
             button{
                 background-color: $blue;
