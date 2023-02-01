@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import { icons, images } from "@/public";
+import { icons, images } from "@/public/_index";
 
 import styles from '../styles/Card.module.scss';
 

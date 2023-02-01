@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { images } from '@/public';
+import { images } from '@/public/_index';
 
 import styles from '../styles/Header.module.scss';
 import axios from 'axios';
