@@ -14,7 +14,7 @@ const Header = () => {
             <p>LogIn</p>
             <div className={styles.cart}>
                 <Image src={cart} alt='cart' width={36} height={36}/>
-                <p>num</p>
+                <p>0</p>
             </div>
         </header>
     )
