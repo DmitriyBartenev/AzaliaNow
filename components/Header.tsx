@@ -6,7 +6,7 @@ import { images } from '@/public/_index';
 
 import styles from '../styles/Header.module.scss';
 
-const Header = () => {
+const Header: React.FC = () => {
     
     const { cart } = images;
 
