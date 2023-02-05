@@ -6,20 +6,21 @@ import { icons, images } from "@/public/_index";
 import styles from '../styles/Card.module.scss';
 
 interface CardProps {
+    id: number,
     title: string,
     price: number,
     category: string,
     description: string,
-    image: string,
+    image: string
     rating:{
-        count: number,
-        rate: number
+      count: number,
+      rate: number
     }
 }
 
-const Card: React.FC<CardProps> = (props) => {
+const Card: React.FC<CardProps> = (card) => {
 
-    const { title, price, category, description, image, rating } = props;
+    const { category, description, image, title, rating, price } = card;
 
     const { Favorites } = icons;
     const { bestseller } = images;

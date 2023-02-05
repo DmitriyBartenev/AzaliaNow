@@ -5,7 +5,6 @@ import Head from 'next/head'
 import Card from '@/components/Card';
 
 import styles from '../styles/CardsPage.module.scss';
-import Header from '@/components/Header';
 
 interface Card {
   id: number,
@@ -24,7 +23,7 @@ interface CardsPageProps {
   cards: Card[]
 }
 
-const CardsPage: React.FC<CardsPageProps> = ({cards}) => {
+const CardsPage: React.FC<CardsPageProps> = ({ cards }) => {
 
   console.log(cards)
 
@@ -41,7 +40,7 @@ const CardsPage: React.FC<CardsPageProps> = ({cards}) => {
           {
             cards.map(item => (
               <Card key={item.id} {...item}/>
-            ))
+            )) 
           }
         </ul>
       </main>
