@@ -20,7 +20,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = (card) => {
 
-    const { category, image, description, title, rating, price } = card;
+    const { category, image, title, rating, price } = card;
 
     const { Favorites } = icons;
     const { bestseller } = images;
