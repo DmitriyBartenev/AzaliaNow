@@ -12,10 +12,10 @@ const Header: React.FC = () => {
 
     return(
         <header className={styles.header}>
-            <Link href=''>
+            <Link href='/'>
                 <p>Sign Up</p>
             </Link>
-            <Link href=''>
+            <Link href='/'>
                 <p>Log In</p>
             </Link>
             <div className={styles.cart}>
