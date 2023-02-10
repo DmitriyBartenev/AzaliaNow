@@ -2,8 +2,12 @@
   "name": "next-app",
   "version": "0.1.0",
   "private": true,
+  "config":{
+    "port": 8000
+  },
   "scripts": {
     "dev": "next dev",
+    "server":"json-server --watch db.json --port %npm_package_config_port%",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
