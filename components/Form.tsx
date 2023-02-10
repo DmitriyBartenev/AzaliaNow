@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+import axios from "axios";
+
+import { baseURL } from "@/config";
 
 import styles from '../styles/Form.module.scss';
 
@@ -23,12 +26,24 @@ type Inputs = {
 
 const Form = () => {
     
+    const [isSubmitted, setSubmitted] = useState(false);
+
     const { register, handleSubmit, reset, formState: {errors} } = useForm<Inputs>({
         resolver: yupResolver(schema)
     });
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
-        
+        try{
+
+            const response = await axios.post(`${baseURL}/auth`, data)
+            
+            if(response.status === 200){
+                setSubmitted(true)
+            }
+
+        }catch(error){
+            console.log(error)
+        }
     }
 
     return(
