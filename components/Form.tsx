@@ -1,27 +1,35 @@
 import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 import styles from '../styles/Form.module.scss';
+
+type Inputs = {
+
+}
 
 const Form = () => {
     
     return(
-        <form className={styles.form}>
-            <label>Enter your Name</label>
-            <input
-                type='text'
-                placeholder='Dmitriy'/>
-            <label>Enter your Surname</label>
-            <input
-                type='text'
-                placeholder='Bartenev'/>
-            <label>Enter your E-mail</label>
-            <input
-                type='text'
-                placeholder='12345@gmail.com'/>
-            <button>
-                Log In
-            </button>
-        </form>
+        <div className={styles.form_container}>
+            <h1>Sign Up</h1>
+            <form className={styles.form}>
+                <label>Enter your Name</label>
+                <input
+                    type='text'
+                    />
+                <label>Enter your Surname</label>
+                <input
+                    type='text'
+                    />
+                <label>Enter your E-mail</label>
+                <input
+                    type='text'
+                    />
+                <button>
+                    Submit
+                </button>
+            </form>
+        </div>
     )
 }
 
