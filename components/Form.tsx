@@ -65,7 +65,8 @@ const Form = () => {
                 <label>Enter your E-mail</label>
                 <input
                     type='text'
-                    name='email'
+                    placeholder="email"
+                    {...register('email')}
                     />
                 <label>Enter your Password</label>
                 <input
