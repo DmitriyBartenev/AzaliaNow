@@ -53,7 +53,8 @@ const Form = () => {
                 <label>Enter your Name</label>
                 <input
                     type='text'
-                    name='firstName'
+                    placeholder="firstName"
+                    {...register('firstName')}
                     />
                 <label>Enter your Surname</label>
                 <input
