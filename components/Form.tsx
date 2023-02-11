@@ -48,7 +48,7 @@ const Form = () => {
 
     return(
         <div className={styles.form_container}>
-            <h1>Sign Up</h1>
+            <h1>Sign In</h1>
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <label>Enter your Name</label>
                 <input
