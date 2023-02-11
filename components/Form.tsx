@@ -59,7 +59,8 @@ const Form = () => {
                 <label>Enter your Surname</label>
                 <input
                     type='text'
-                    name='secondName'
+                    placeholder="lastName"
+                    {...register('lastName')}
                     />
                 <label>Enter your E-mail</label>
                 <input
