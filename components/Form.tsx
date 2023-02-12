@@ -71,12 +71,14 @@ const Form = () => {
                 <label>Enter your Password</label>
                 <input
                     type='text'
-                    name='password'
+                    placeholder="enter your password"
+                    {...register('password')}
                     />
                 <label>Confirm your Password</label>
                 <input
                     type='text'
-                    name='confirmPassword'
+                    placeholder="confirm your password"
+                    {...register('confirmPassword')}
                     />
                 <button>
                     Submit
