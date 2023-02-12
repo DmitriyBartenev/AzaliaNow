@@ -80,7 +80,7 @@ const Form = () => {
                     placeholder="confirm your password"
                     {...register('confirmPassword')}
                     />
-                <button>
+                <button type="submit">
                     Submit
                 </button>
             </form>
