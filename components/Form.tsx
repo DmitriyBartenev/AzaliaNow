@@ -9,16 +9,16 @@ import { baseURL } from "@/config";
 import styles from '../styles/Form.module.scss';
 
 const schema = yup.object().shape({
-    firstName: yup.string().required(),
-    secondName: yup.string().required(),
+    name: yup.string().required(),
+    surname: yup.string().required(),
     email: yup.string().email().required(),
     password: yup.string().min(4).max(15).required(),
     confirmPassword: yup.string().oneOf([yup.ref('password')])
 })
 
 type Inputs = {
-    firstName: string,
-    lastName: string,
+    name: string,
+    surname: string,
     email: string,
     password: string,
     confirmPassword: string
@@ -54,23 +54,27 @@ const Form = () => {
                     <label>Enter your Name</label>
                     <input
                         type='text'
-                        {...register('firstName')}
+                        {...register('name')}
                         />
+                    <p>{errors.name?.message}</p>
                     <label>Enter your Surname</label>
                     <input
                         type='text'
-                        {...register('lastName')}
+                        {...register('surname')}
                         />
+                    <p>{errors.surname?.message}</p>
                     <label>Enter your E-mail</label>
                     <input
                         type='text'
                         {...register('email')}
                         />
+                    <p>{errors.email?.message}</p>
                     <label>Enter your Password</label>
                     <input
                         type='text'
                         {...register('password')}
                         />
+                    <p>{errors.password?.message}</p>
                     <label>Confirm your Password</label>
                     <input
                         type='text'
