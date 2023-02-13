@@ -71,15 +71,16 @@ const Form = () => {
                     <p>{errors.email?.message}</p>
                     <label>Enter your Password</label>
                     <input
-                        type='text'
+                        type='password'
                         {...register('password')}
                         />
                     <p>{errors.password?.message}</p>
                     <label>Confirm your Password</label>
                     <input
-                        type='text'
+                        type='password'
                         {...register('confirmPassword')}
                         />
+                    <p>{errors.confirmPassword?.message}</p>
                     <div className={styles.button_container}>
                         <button type="submit">
                             Submit
