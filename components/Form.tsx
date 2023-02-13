@@ -47,43 +47,42 @@ const Form = () => {
     }
 
     return(
-        <div className={styles.form_container}>
-            <h1>Sign In</h1>
-            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-                <label>Enter your Name</label>
-                <input
-                    type='text'
-                    placeholder="firstName"
-                    {...register('firstName')}
-                    />
-                <label>Enter your Surname</label>
-                <input
-                    type='text'
-                    placeholder="lastName"
-                    {...register('lastName')}
-                    />
-                <label>Enter your E-mail</label>
-                <input
-                    type='text'
-                    placeholder="email"
-                    {...register('email')}
-                    />
-                <label>Enter your Password</label>
-                <input
-                    type='text'
-                    placeholder="enter your password"
-                    {...register('password')}
-                    />
-                <label>Confirm your Password</label>
-                <input
-                    type='text'
-                    placeholder="confirm your password"
-                    {...register('confirmPassword')}
-                    />
-                <button type="submit">
-                    Submit
-                </button>
-            </form>
+        <div className={styles.wrapper}>
+            <div className={styles.form_container}>
+                <h1>Sign In</h1>
+                <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+                    <label>Enter your Name</label>
+                    <input
+                        type='text'
+                        {...register('firstName')}
+                        />
+                    <label>Enter your Surname</label>
+                    <input
+                        type='text'
+                        {...register('lastName')}
+                        />
+                    <label>Enter your E-mail</label>
+                    <input
+                        type='text'
+                        {...register('email')}
+                        />
+                    <label>Enter your Password</label>
+                    <input
+                        type='text'
+                        {...register('password')}
+                        />
+                    <label>Confirm your Password</label>
+                    <input
+                        type='text'
+                        {...register('confirmPassword')}
+                        />
+                    <div className={styles.button_container}>
+                        <button type="submit">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }
