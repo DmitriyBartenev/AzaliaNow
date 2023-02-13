@@ -9,10 +9,10 @@ import { baseURL } from "@/config";
 import styles from '../styles/Form.module.scss';
 
 const schema = yup.object().shape({
-    name: yup.string().required(),
-    surname: yup.string().required(),
-    email: yup.string().email().required(),
-    password: yup.string().min(4).max(15).required(),
+    name: yup.string().required('Please enter your Name'),
+    surname: yup.string().required('Please enter your Surname'),
+    email: yup.string().email().required('Please enter your E-mail'),
+    password: yup.string().min(4).max(15).required('Please enter your Password'),
     confirmPassword: yup.string().oneOf([yup.ref('password')])
 })
 
@@ -37,13 +37,18 @@ const Form = () => {
 
             const response = await axios.post(`${baseURL}/auth`, data)
             
-            if(response.status === 200){
+            if(response.status === 201){
                 setSubmitted(true)
             }
 
         }catch(error){
             console.log(error)
         }
+
+        setTimeout(() => {
+            setSubmitted(false)
+            reset();
+        },2000)
     }
 
     return(
@@ -80,7 +85,10 @@ const Form = () => {
                         type='password'
                         {...register('confirmPassword')}
                         />
-                    <p>{errors.confirmPassword?.message}</p>
+                    <p>{errors.confirmPassword && 'Passwords mismatch'}</p>
+                    {
+                        isSubmitted && <p>Succesfully Submitted</p>
+                    }
                     <div className={styles.button_container}>
                         <button type="submit">
                             Submit

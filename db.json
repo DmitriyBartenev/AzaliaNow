@@ -1,20 +1,5 @@
 {
   "auth": [
-    {
-      "name": "fghfgh",
-      "surname": "fhfgh",
-      "email": "hfghfgh@hgfhgf",
-      "password": "fggfh",
-      "confirmPassword": "fggfh",
-      "id": 1
-    },
-    {
-      "name": "fghfgh",
-      "surname": "fhfgh",
-      "email": "hfghfgh@hgfhgf",
-      "password": "fggfh",
-      "confirmPassword": "fggfh",
-      "id": 2
-    }
+
   ]
 }
