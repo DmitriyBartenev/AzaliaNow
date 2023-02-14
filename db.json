@@ -1,12 +1,4 @@
 {
   "auth": [
-    {
-      "name": "Dmitiry",
-      "surname": "Bartenev",
-      "email": "bartenevDmitiry@bk.ru",
-      "password": "ejiotbdp",
-      "confirmPassword": "ejiotbdp",
-      "id": 1
-    }
   ]
 }
