@@ -24,7 +24,7 @@ type Inputs = {
     confirmPassword: string
 }
 
-const Form = () => {
+const Form: React.FC = () => {
     
     const [isSubmitted, setSubmitted] = useState(false);
     const [isError, setError] = useState(false);
@@ -34,6 +34,7 @@ const Form = () => {
     });
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
+        
         try{
 
             const response = await axios.post(`${baseURL}/auth`, data);
