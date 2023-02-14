@@ -52,7 +52,7 @@ const Form = () => {
         setTimeout(() => {
             setSubmitted(false)
             reset();
-        },2000)
+        }, 1500)
     }
 
     return(
