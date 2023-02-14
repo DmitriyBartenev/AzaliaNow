@@ -25,8 +25,6 @@ interface CardsPageProps {
 
 const CardsPage: React.FC<CardsPageProps> = ({ cards }) => {
 
-  console.log(cards)
-
   return (
     <>
       <Head>
