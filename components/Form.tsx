@@ -27,6 +27,7 @@ type Inputs = {
 const Form = () => {
     
     const [isSubmitted, setSubmitted] = useState(false);
+    const [isError, setError] = useState(false);
 
     const { register, handleSubmit, reset, formState: {errors} } = useForm<Inputs>({
         resolver: yupResolver(schema)
@@ -35,16 +36,19 @@ const Form = () => {
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         try{
 
-            const response = await axios.post(`${baseURL}/auth`, data)
+            const response = await axios.post(`${baseURL}/auth`, data);
             
             if(response.status === 201){
                 setSubmitted(true)
             }
 
         }catch(error){
-            console.log(error)
+            setError(true);
+            const status = (error as Error).message;
+            throw new Error(`Something Went Wrong. ${status}`)
         }
 
+        setError(false);
         setTimeout(() => {
             setSubmitted(false)
             reset();
@@ -88,6 +92,9 @@ const Form = () => {
                     <p>{errors.confirmPassword && 'Passwords mismatch'}</p>
                     {
                         isSubmitted && <p>Succesfully Submitted</p>
+                    }
+                    {
+                        isError && <p>Something Went Wrong</p>
                     }
                     <div className={styles.button_container}>
                         <button type="submit">
