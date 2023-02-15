@@ -53,7 +53,7 @@ const Form: React.FC = () => {
         setTimeout(() => {
             setSubmitted(false)
             reset();
-        }, 1500)
+        }, 2000)
     }
 
     return(
