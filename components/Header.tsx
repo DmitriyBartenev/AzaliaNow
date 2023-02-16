@@ -15,7 +15,7 @@ const Header: React.FC = () => {
             <Link href='/auth'>
                 <p>Sign Up</p>
             </Link>
-            <Link href='/'>
+            <Link href='/auth'>
                 <p>Log In</p>
             </Link>
             <div className={styles.cart}>
