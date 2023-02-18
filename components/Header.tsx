@@ -13,10 +13,7 @@ const Header: React.FC = () => {
     return(
         <header className={styles.header}>
             <Link href='/auth'>
-                <p>Sign Up</p>
-            </Link>
-            <Link href='/'>
-                <p>Log In</p>
+                <p>Sign In</p>
             </Link>
             <div className={styles.cart}>
                 <Image src={cart} alt='cart' width={36} height={36}/>
