@@ -95,7 +95,7 @@ const Form: React.FC = () => {
                         isSubmitted && <p>Succesfully Submitted</p>
                     }
                     {
-                        isError && <p>Something Went Wrong</p>
+                        isError && <p>Oops...Something Went Wrong</p>
                     }
                     <div className={styles.button_container}>
                         <button type="submit">
