@@ -29,7 +29,7 @@ const Form: React.FC = () => {
     const [isSubmitted, setSubmitted] = useState(false);
     const [isError, setError] = useState(false);
 
-    const { register, handleSubmit, reset, formState: {errors} } = useForm<Inputs>({
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>({
         resolver: yupResolver(schema)
     });
 
