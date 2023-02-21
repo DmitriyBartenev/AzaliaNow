@@ -12,7 +12,7 @@ const schema = yup.object().shape({
     name: yup.string().required('Please enter your Name'),
     surname: yup.string().required('Please enter your Surname'),
     email: yup.string().email().required('Please enter your E-mail'),
-    password: yup.string().min(4).max(15).required('Please enter your Password'),
+    password: yup.string().min(5).max(15).required('Please enter your Password'),
     confirmPassword: yup.string().oneOf([yup.ref('password')])
 })
 
