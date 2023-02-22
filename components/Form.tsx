@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { SetStateAction, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -8,13 +8,15 @@ import { baseURL } from "@/config";
 
 import styles from '../styles/Form.module.scss';
 
+import { icons } from "@/public/_index";
+
 const schema = yup.object().shape({
     name: yup.string().required('Please enter your Name'),
     surname: yup.string().required('Please enter your Surname'),
     email: yup.string().email().required('Please enter your E-mail'),
-    password: yup.string().min(5).max(15).required('Please enter your Password'),
+    password: yup.string().min(4).max(15).required('Please enter your Password'),
     confirmPassword: yup.string().oneOf([yup.ref('password')])
-})
+});
 
 type Inputs = {
     name: string,
@@ -22,16 +24,23 @@ type Inputs = {
     email: string,
     password: string,
     confirmPassword: string
+};
+
+interface FormProps {
+    showForm: boolean,
+    setShowForm: React.Dispatch<SetStateAction<boolean>>
 }
 
-const Form: React.FC = () => {
+const Form: React.FC<FormProps> = ({ showForm, setShowForm }) => {
     
-    const [isSubmitted, setSubmitted] = useState(false);
-    const [isError, setError] = useState(false);
+    const [isSubmitted, setSubmitted] = useState<boolean>(false);
+    const [isError, setError] = useState<boolean>(false);
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm<Inputs>({
         resolver: yupResolver(schema)
     });
+
+    const { Close } = icons;
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         
@@ -102,6 +111,7 @@ const Form: React.FC = () => {
                             Submit
                         </button>
                     </div>
+                    <Close onClick={() => setShowForm(false)}/>
                 </form>
             </div>
         </div>

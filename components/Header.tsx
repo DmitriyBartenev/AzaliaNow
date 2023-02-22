@@ -1,23 +1,26 @@
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import { images } from '@/public/_index';
 
 import styles from '../styles/Header.module.scss';
+import Form from './Form';
 
 const Header: React.FC = () => {
     
+    const [showForm, setShowForm] = React.useState<boolean>(false);
+
     const { cart } = images;
 
     return(
         <header className={styles.header}>
-            <Link href='/auth'>
-                <p>Sign In</p>
-            </Link>
+            <p onClick={() => setShowForm(true)}>Sign In</p>
+            {
+                showForm && <Form showForm={showForm} setShowForm={setShowForm}/>
+            }
             <div className={styles.cart}>
                 <Image src={cart} alt='cart' width={36} height={36}/>
-                <p>0</p>
+                <span>0</span>
             </div>
         </header>
     )

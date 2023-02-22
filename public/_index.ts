@@ -1,7 +1,9 @@
 import Favorites from './favorites.svg';
+import Close from './xmark.svg';
 
 export const icons = {
-    Favorites
+    Favorites,
+    Close
 }
 
 export const images = {

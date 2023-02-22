@@ -8,12 +8,16 @@
     justify-content: flex-end;
     padding: 0 70px;
     margin-bottom: 50px;
+    p{
+        cursor: pointer;
+        margin-right: 40px;
+    }
     .cart{
         position: relative;
         img{
             cursor: pointer;
         }
-        p{
+        span{
             position: absolute;
             top: -5px;
             right: -15px;
