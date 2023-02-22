@@ -1,20 +1,5 @@
 {
   "auth": [
-    {
-      "name": "Dmitry ",
-      "surname": "Bartenev",
-      "email": "bartenevdmitriy@bk.ru",
-      "password": "mamama",
-      "confirmPassword": "mamama",
-      "id": 1
-    },
-    {
-      "name": "Dmitry",
-      "surname": "Bartenev",
-      "email": "bartenevdmitriy@bk.ru",
-      "password": "123123",
-      "confirmPassword": "123123",
-      "id": 2
-    }
+    
   ]
 }
