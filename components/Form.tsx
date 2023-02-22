@@ -1,20 +1,23 @@
-import React, { SetStateAction, useState } from "react";
+import React, { SetStateAction, Dispatch, useState, useContext } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import axios from "axios";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
+import AppContext from "@/AppContext";
+import { auth } from 'firebase-config';
 import { baseURL } from "@/config";
 
-import styles from '../styles/Form.module.scss';
-
 import { icons } from "@/public/_index";
+
+import styles from '../styles/Form.module.scss';
 
 const schema = yup.object().shape({
     name: yup.string().required('Please enter your Name'),
     surname: yup.string().required('Please enter your Surname'),
     email: yup.string().email().required('Please enter your E-mail'),
-    password: yup.string().min(4).max(15).required('Please enter your Password'),
+    password: yup.string().min(6).max(20).required('Please enter your Password'),
     confirmPassword: yup.string().oneOf([yup.ref('password')])
 });
 
@@ -27,11 +30,10 @@ type Inputs = {
 };
 
 interface FormProps {
-    showForm: boolean,
-    setShowForm: React.Dispatch<SetStateAction<boolean>>
+    setShowForm: Dispatch<SetStateAction<boolean>>
 }
 
-const Form: React.FC<FormProps> = ({ showForm, setShowForm }) => {
+const Form: React.FC<FormProps> = ({ setShowForm }) => {
     
     const [isSubmitted, setSubmitted] = useState<boolean>(false);
     const [isError, setError] = useState<boolean>(false);
@@ -42,33 +44,40 @@ const Form: React.FC<FormProps> = ({ showForm, setShowForm }) => {
 
     const { Close } = icons;
 
-    const onSubmit: SubmitHandler<Inputs> = async (data) => {
-        
+    const { logged, setLogged } = useContext(AppContext);
+
+    const onSubmit:SubmitHandler<Inputs> = async (data) => {
+     
+        const { email, password } = data;
+
         try{
 
-            const response = await axios.post(`${baseURL}/auth`, data);
-            
-            if(response.status === 201){
-                setSubmitted(true)
+            if(logged) {
+                await createUserWithEmailAndPassword(auth, email, password)
+            }
+            else {
+                await signInWithEmailAndPassword(auth, email, password)
             }
 
+            setError(false);
+            setTimeout(() => {
+                setSubmitted(false);
+                setShowForm(false);
+                reset();
+            }, 2000)
+    
         }catch(error){
             setError(true);
             const status = (error as Error).message;
-            throw new Error(`Something Went Wrong. ${status}`)
+            console.log(status);
         }
 
-        setError(false);
-        setTimeout(() => {
-            setSubmitted(false)
-            reset();
-        }, 1500)
     }
 
     return(
         <div className={styles.wrapper}>
             <div className={styles.form_container}>
-                <h1>Sign In</h1>
+                <h3>{ logged ? 'Sign Up' : 'Sign In' }</h3>
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                     <label>Enter your Name</label>
                     <input
@@ -106,9 +115,16 @@ const Form: React.FC<FormProps> = ({ showForm, setShowForm }) => {
                     {
                         isError && <p>Oops...Something Went Wrong</p>
                     }
+                    {
+                        !logged 
+                        &&
+                        <p onClick={() => setLogged?.(true)}>
+                            If you do not have an account yet, kindly create one - it is free.
+                        </p> 
+                    }
                     <div className={styles.button_container}>
                         <button type="submit">
-                            Submit
+                            { logged ? 'Sign Up' : 'Sign In' }
                         </button>
                     </div>
                     <Close onClick={() => setShowForm(false)}/>

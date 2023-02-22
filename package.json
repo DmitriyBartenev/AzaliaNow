@@ -2,12 +2,12 @@
   "name": "next-app",
   "version": "0.1.0",
   "private": true,
-  "config":{
+  "config": {
     "port": 8000
   },
   "scripts": {
     "dev": "next dev",
-    "server":"json-server --watch db.json --port %npm_package_config_port%",
+    "server": "json-server --watch db.json --port %npm_package_config_port%",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -21,6 +21,7 @@
     "axios": "^1.3.2",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.5",
+    "firebase": "^9.17.1",
     "json-server": "^0.17.1",
     "next": "13.1.5",
     "react": "18.2.0",
