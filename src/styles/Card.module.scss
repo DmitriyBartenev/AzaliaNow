@@ -25,13 +25,13 @@
                 display: flex;
                 align-items: center;
                 span{
-                    background-image: url('../public/star.svg');
+                    background-image: url('../public/icons/star.svg');
                     margin: 0 2px;
                     width: 13px;
                     height: 13px;
                 }
                 .empty{
-                    background-image: url('../public/emptyStar.svg');
+                    background-image: url('../public/icons/emptyStar.svg');
                 }
                 p{
                     text-decoration: underline;
@@ -110,10 +110,10 @@
                     padding: 0;
                     background-color: transparent;
                     &:first-child{
-                        background-image: url('../public/-.svg');
+                        background-image: url('../public/icons/-.svg');
                     }
                     &:last-child{
-                        background-image: url('../public/+.svg');
+                        background-image: url('../public/icons/+.svg');
                     }
                 }
                 
